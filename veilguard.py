@@ -836,16 +836,6 @@ hr {{
 
 ALERTS_FILE = "data/detected_alerts.csv"
 LOGS_FILE   = "data/synthetic_logs.csv"
-
-import os
-
-# Force fresh session on every app restart
-for file in [
-    "data/detected_alerts.csv",
-    "data/synthetic_logs.csv"
-]:
-    if os.path.exists(file):
-        os.remove(file)
         
 SEVERITY_COLORS = {
     "Critical": "#f87171",
@@ -1132,21 +1122,26 @@ def generate_pdf_report(row, reasons, actions, explanation):
     except Exception as e:
         return None, str(e)
 
-
 def run_detection_engine():
     try:
         os.makedirs("data", exist_ok=True)
+
         if not os.path.exists("data/synthetic_logs.csv"):
             return False, "No input log file found at data/synthetic_logs.csv"
+
         result = subprocess.run(
             [sys.executable, "detector.py"],
             capture_output=True,
             text=True,
             encoding="utf-8"
         )
+
         if result.returncode == 0:
+            st.cache_data.clear()
             return True, result.stdout
+
         return False, result.stderr if result.stderr else result.stdout
+
     except Exception as e:
         return False, str(e)
 
