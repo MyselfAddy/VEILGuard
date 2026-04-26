@@ -837,6 +837,16 @@ hr {{
 ALERTS_FILE = "data/detected_alerts.csv"
 LOGS_FILE   = "data/synthetic_logs.csv"
 
+import os
+
+# Force fresh session on every app restart
+for file in [
+    "data/detected_alerts.csv",
+    "data/synthetic_logs.csv"
+]:
+    if os.path.exists(file):
+        os.remove(file)
+        
 SEVERITY_COLORS = {
     "Critical": "#f87171",
     "High":     "#fbbf24",
