@@ -1128,8 +1128,11 @@ def run_detection_engine():
         os.makedirs("data", exist_ok=True)
         if not os.path.exists("data/synthetic_logs.csv"):
             return False, "No input log file found at data/synthetic_logs.csv"
-        result = subprocess.run([sys.executable, "detector.py"]),
-            capture_output=True, text=True, encoding="utf-8"
+        result = subprocess.run(
+            [sys.executable, "detector.py"],
+            capture_output=True,
+            text=True,
+            encoding="utf-8"
         )
         if result.returncode == 0:
             return True, result.stdout
