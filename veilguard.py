@@ -1155,7 +1155,7 @@ def run_detection_engine():
 # DATA LOADERS
 # =========================================================
 
-@st.cache_data
+# @st.cache_data
 def load_alerts():
     if os.path.exists(ALERTS_FILE):
         try:
@@ -1168,7 +1168,7 @@ def load_alerts():
     return pd.DataFrame()
 
 
-@st.cache_data
+# @st.cache_data
 def load_logs():
     if os.path.exists(LOGS_FILE):
         try:
