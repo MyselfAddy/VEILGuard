@@ -1137,7 +1137,8 @@ def run_detection_engine():
         )
 
         if result.returncode == 0:
-            st.cache_data.clear()
+            st.session_state.alerts_df = load_alerts()
+            st.session_state.logs_df = load_logs()
             return True, result.stdout
 
         return False, result.stderr if result.stderr else result.stdout
@@ -1189,8 +1190,15 @@ def load_logs():
     return pd.DataFrame()
 
 
-alerts_df = load_alerts()
-logs_df   = load_logs()
+if "alerts_df" not in st.session_state:
+    st.session_state.alerts_df = pd.DataFrame()
+
+if "logs_df" not in st.session_state:
+    st.session_state.logs_df = pd.DataFrame()
+
+alerts_df = st.session_state.alerts_df
+logs_df = st.session_state.logs_df
+
 
 # =========================================================
 # SIDEBAR
