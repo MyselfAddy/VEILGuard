@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 import os
 import subprocess
 import shutil
+import sys
 
 from groq_helper import (
     generate_alert_explanation,
@@ -1127,8 +1128,7 @@ def run_detection_engine():
         os.makedirs("data", exist_ok=True)
         if not os.path.exists("data/synthetic_logs.csv"):
             return False, "No input log file found at data/synthetic_logs.csv"
-        result = subprocess.run(
-            ["python", "detector.py"],
+        result = subprocess.run([sys.executable, "detector.py"]),
             capture_output=True, text=True, encoding="utf-8"
         )
         if result.returncode == 0:
