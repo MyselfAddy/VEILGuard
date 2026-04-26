@@ -4,8 +4,8 @@ numpy
 scikit-learn
 plotly
 groq
-reportlab
 python-dotenv
+reportlab
 requests
-pytz
 openpyxl
+pytz
