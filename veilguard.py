@@ -2654,7 +2654,7 @@ elif _page == "About VEILGuard":
 
     st.markdown("<br>", unsafe_allow_html=True)
 
-    # ── Resume impact statement ───────────────────────────
+    # ── Project impact ───────────────────────────
     st.markdown("""
     <div style="background:linear-gradient(135deg,rgba(56,189,248,0.08),rgba(167,139,250,0.06),rgba(56,189,248,0.04));
                 border:1px solid rgba(56,189,248,0.28);border-radius:var(--radius-lg);
@@ -2666,14 +2666,14 @@ elif _page == "About VEILGuard":
             <div style="font-size:2.4rem;flex-shrink:0;margin-top:2px;animation:floatUp 3s ease infinite;">📄</div>
             <div>
                 <div style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#38bdf8;
-                            letter-spacing:0.18em;margin-bottom:16px;text-transform:uppercase;">◈ Resume Impact Statement</div>
+                            letter-spacing:0.18em;margin-bottom:16px;text-transform:uppercase;">Project Impact </div>
                 <div style="font-family:'DM Sans',sans-serif;font-size:16px;color:#f0f4ff;
                             line-height:1.9;font-style:italic;">
                     "Built <strong style="color:#38bdf8;font-style:normal;">VEILGuard</strong> — an advanced
                     enterprise cybersecurity platform leveraging Streamlit, Isolation Forest anomaly detection,
                     UEBA pipelines, and Groq LLMs to detect insider threats in real time, generate AI-powered
                     SOC analyst reports, simulate malicious insider attack chains, and recommend proactive
-                    defensive controls aligned with MITRE ATT&CK."
+                    defensive controls aligned with MITRE ATT&CK." - Aditya Senapati R
                 </div>
             </div>
         </div>
